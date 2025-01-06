@@ -5,16 +5,17 @@ import java.util.ArrayList;
 //lv 2
 public class Calculator {
 
+    //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
+    private ArrayList<Double> resultList = new ArrayList<>();
+
+    //getter
     public ArrayList<Double> getResultList() {
         return resultList;
     }
-
+    //setter
     public void setResultList(ArrayList<Double> resultList) {
         this.resultList = resultList;
     }
-
-    //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
-    private ArrayList<Double> resultList = new ArrayList<>();
 
     //사칙연산 및 결과 값 반환하는 메소드
     public double calculate(long first, long second, char operator) {
@@ -42,5 +43,9 @@ public class Calculator {
 
         //결과 값 반환하기
         return result;
+    }
+
+    public void removeResult() {
+        resultList.remove(0);
     }
 }
