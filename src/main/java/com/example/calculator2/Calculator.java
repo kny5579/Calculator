@@ -2,7 +2,6 @@ package com.example.calculator2;
 
 import java.util.ArrayList;
 
-//lv 2
 public class Calculator {
 
     //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
