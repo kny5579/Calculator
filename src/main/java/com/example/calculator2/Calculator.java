@@ -31,6 +31,9 @@ public class Calculator {
                 result = first * second;
                 break;
             case '%':
+                if (second == 0) { //예외: 나눗셈 연산에서 분모가 0인 경우
+                    throw new ArithmeticException("분모(두번째 정수)에 0이 입력된 경우 나눗셈 연산이 불가합니다.");
+                }
                 result = first / (double) second;
                 break;
             default: //예외: 기호가 일치하지 않는 경우
