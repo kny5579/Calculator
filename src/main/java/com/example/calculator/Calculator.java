@@ -16,7 +16,8 @@ public class Calculator {
                 first = sc.nextLong();
                 if (first < 0) {
                     System.out.println("양의 정수를 입력하셔야 합니다.");
-                    break;
+                    sc.nextLine();
+                    continue;
                 }
             } catch (Exception e) { //예외: 잘못된 입력인 경우
                 System.out.println("유효하지 않은 숫자입니다. 다시 입력해주세요.");
@@ -29,7 +30,8 @@ public class Calculator {
                 second = sc.nextLong();
                 if (second < 0) {
                     System.out.println("양의 정수를 입력하셔야 합니다.");
-                    break;
+                    sc.nextLine();
+                    continue;
                 }
             } catch (Exception e) { //예외: 잘못된 입력인 경우
                 System.out.println("유효하지 않은 숫자입니다. 다시 입력해주세요.");
