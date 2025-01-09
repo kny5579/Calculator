@@ -1,18 +1,20 @@
 package com.example.calculator2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Calculator {
 
     //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
-    private ArrayList<Double> resultList = new ArrayList<>();
+    private List<Double> resultList = new ArrayList<>();
 
     //getter
-    public ArrayList<Double> getResultList() {
+    public List<Double> getResultList() {
         return resultList;
     }
+
     //setter
-    public void setResultList(ArrayList<Double> resultList) {
+    public void setResultList(List<Double> resultList) {
         this.resultList = resultList;
     }
 

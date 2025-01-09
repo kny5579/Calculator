@@ -1,6 +1,7 @@
 package com.example.calculator3;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 //lv 3
@@ -9,15 +10,15 @@ import java.util.stream.Collectors;
 public class ArithmeticCalculator<T extends Number> { // enum을 활용한 사칙연산 수행 클래스
 
     //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
-    private ArrayList<Double> resultList = new ArrayList<>();
+    private List<Double> resultList = new ArrayList<>();
 
     //getter
-    public ArrayList<Double> getResultList() {
+    public List<Double> getResultList() {
         return resultList;
     }
 
     //setter
-    public void setResultList(ArrayList<Double> resultList) {
+    public void setResultList(List<Double> resultList) {
         this.resultList = resultList;
     }
 
@@ -40,7 +41,11 @@ public class ArithmeticCalculator<T extends Number> { // enum을 활용한 사�
         resultList.remove(0);
     }
 
-    public ArrayList<Double> moreThanInput(T input) {
-        return getResultList().stream().filter(num -> num > input.doubleValue()).collect(Collectors.toCollection(ArrayList::new));
+    public List<Double> moreThanInput(Double input) {
+        return getResultList().stream().filter(num -> num > input).collect(Collectors.toList());
+    }
+
+    public List<Double> updateDoubleList(double sortingNum) {
+        return getResultList().stream().map(num -> num == sortingNum ? num * 2 : num).collect(Collectors.toList());
     }
 }

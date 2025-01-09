@@ -2,6 +2,7 @@ package com.example.calculator3;
 
 import java.util.function.BiFunction;
 
+//연산자 enum 클래스
 public enum OperatorType {
     PLUS('+', (a, b) -> a.doubleValue() + b.doubleValue()),
     MINUS('-', (a, b) -> a.doubleValue() - b.doubleValue()),

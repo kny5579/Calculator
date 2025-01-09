@@ -48,23 +48,23 @@ public class App {
             }
 
             //컬렉션 가져오기(getter 활용)
-            System.out.println("저장된 데이터: "+calculator.getResultList());
+            System.out.println("저장된 데이터: " + calculator.getResultList());
 
             //데이터 삭제
             System.out.print("가장 먼저 저장된 데이터를 삭제하려면 y를 입력하세요. 계속하려면 아무 키나 입력하세요: ");
             String removeInput = sc.next();
-            if(removeInput.equals("y")) {
+            if (removeInput.equals("y")) {
                 calculator.removeResult();
-                System.out.println("변경된 데이터 목록: "+calculator.getResultList());
+                System.out.println("변경된 데이터 목록: " + calculator.getResultList());
             }
 
             //컬렉션 초기화(setter 활용)
             System.out.print("리스트를 초기화하려면 y를 입력하세요. 계속하려면 아무 키나 입력하세요: ");
             String resetInput = sc.next();
-            if(resetInput.equals("y")){
+            if (resetInput.equals("y")) {
                 ArrayList<Double> list = new ArrayList<>();
                 calculator.setResultList(list);
-                System.out.println("변경된 데이터 목록: "+calculator.getResultList());
+                System.out.println("변경된 데이터 목록: " + calculator.getResultList());
             }
 
             //반복 종료 묻기
