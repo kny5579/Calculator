@@ -5,34 +5,24 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArithmeticCalculator calculator = new ArithmeticCalculator();
-        //양의 정수 입력받기
+        ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
         while (true) {
             Scanner sc = new Scanner(System.in);
-            System.out.print("첫 번째 숫자(양의 정수)를 입력하세요: ");
-            long first;
+            System.out.print("첫 번째 숫자를 입력하세요: ");
+            Number first;
             try {
-                first = sc.nextLong();
-                if (first < 0) {
-                    System.out.println("양의 정수를 입력하셔야 합니다.");
-                    break;
-                }
-            } catch (Exception e) { //예외: 잘못된 입력인 경우
-                System.out.println("유효하지 않은 숫자입니다. 다시 입력해주세요.");
-                sc.nextLine();
+                //double, long 구분 메소드
+                first = parseNumber(sc.next());
+            } catch (IllegalArgumentException e) {
+                System.out.println("오류: " + e.getMessage());
                 continue;
             }
-            System.out.print("두 번째 숫자(양의 정수)를 입력하세요: ");
-            long second;
+            System.out.print("두 번째 숫자를 입력하세요: ");
+            Number second;
             try {
-                second = sc.nextLong();
-                if (second < 0) {
-                    System.out.println("양의 정수를 입력하셔야 합니다.");
-                    break;
-                }
-            } catch (Exception e) { //예외: 잘못된 입력인 경우
-                System.out.println("유효하지 않은 숫자입니다. 다시 입력해주세요.");
-                sc.nextLine();
+                second = parseNumber(sc.next());
+            } catch (IllegalArgumentException e) {
+                System.out.println("오류: " + e.getMessage());
                 continue;
             }
 
@@ -67,6 +57,21 @@ public class App {
                 System.out.println("변경된 데이터 목록: " + calculator.getResultList());
             }
 
+            //입력받은 값보다 큰 결과값 출력(3-3)
+            System.out.print("입력 값보다 큰 결과값들을 보려면 y를 입력하세요. 계속하려면 아무 키나 입력하세요: ");
+            String researchInput = sc.next();
+            if (researchInput.equals("y")) {
+                System.out.print("숫자를 입력하세요: ");
+                Number input;
+                try {
+                    input = parseNumber(sc.next());
+                } catch (IllegalArgumentException e) {
+                    System.out.println("오류: " + e.getMessage());
+                    continue;
+                }
+                System.out.println("입력 값 "+input+"보다 큰 결과값 목록: "+calculator.moreThanInput(input));
+            }
+
             //반복 종료 묻기
             System.out.print("계산을 종료하려면 'exit'을 입력하세요. 계속하려면 아무 키나 입력하세요: ");
             String exitInput = sc.next();
@@ -78,4 +83,16 @@ public class App {
         }
 
     }
+    private static Number parseNumber(String input) {
+        try {
+            if (input.contains(".")) {
+                return Double.parseDouble(input); // 소수점이 있는 경우 Double로 변환
+            } else {
+                return Long.parseLong(input); // 정수인 경우 Long으로 변환
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("유효하지 않은 숫자입니다.");
+        }
+    }
+
 }
