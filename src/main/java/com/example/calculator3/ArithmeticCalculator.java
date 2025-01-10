@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class ArithmeticCalculator<T extends Number> { // enum을 활용한 사칙연산 수행 클래스
 
     //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
-    private List<Double> resultList = new ArrayList<>();
+    private final List<Double> resultList = new ArrayList<>();
 
     //getter
     public List<Double> getResultList() {
@@ -18,8 +18,8 @@ public class ArithmeticCalculator<T extends Number> { // enum을 활용한 사�
     }
 
     //setter
-    public void setResultList(List<Double> resultList) {
-        this.resultList = resultList;
+    public void addResult(double result) {
+        resultList.add(result);
     }
 
     //사칙연산 및 결과 값 반환하는 메소드
@@ -29,7 +29,7 @@ public class ArithmeticCalculator<T extends Number> { // enum을 활용한 사�
         for (OperatorType type : OperatorType.values()) { //OperatorType.values()={PLUS,MINUS,MULTIPLY,DIVIDE}
             if (type.getOperator() == operator) {
                 result = type.calculate(first.doubleValue(), second.doubleValue());
-                resultList.add(result);
+                addResult(result);
                 return result;
             }
         }

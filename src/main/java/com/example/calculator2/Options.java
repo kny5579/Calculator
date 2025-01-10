@@ -7,7 +7,6 @@ class Options {
     public static boolean selectOptions(Calculator calculator, Scanner sc) {
         System.out.println("옵션을 선택하세요. 연산을 계속하려면 옵션 외 다른 키를 입력하세요");
         System.out.println("1: 가장 먼저 저장된 데이터 삭제");
-        System.out.println("2: 리스트 초기화");
         System.out.println("exit: 프로그램 종료");
 
         System.out.print("입력: ");
@@ -21,12 +20,6 @@ class Options {
                 } else {
                     System.out.println("저장된 데이터가 없습니다.");
                 }
-                System.out.println("현재 데이터 목록: " + calculator.getResultList());
-                break;
-
-            case "2": //컬렉션 초기화(setter 활용)
-                calculator.setResultList(new ArrayList<>());
-                System.out.println("리스트를 초기화했습니다.");
                 System.out.println("현재 데이터 목록: " + calculator.getResultList());
                 break;
 

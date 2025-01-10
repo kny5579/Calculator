@@ -6,7 +6,7 @@ import java.util.List;
 public class Calculator {
 
     //연산 결과 저장하는 컬렉션 타입 필드 선언 및 생성
-    private List<Double> resultList = new ArrayList<>();
+    private final List<Double> resultList = new ArrayList<>();
 
     //getter
     public List<Double> getResultList() {
@@ -14,8 +14,8 @@ public class Calculator {
     }
 
     //setter
-    public void setResultList(List<Double> resultList) {
-        this.resultList = resultList;
+    public void addResult(double result) {
+        resultList.add(result);
     }
 
     //사칙연산 및 결과 값 반환하는 메소드
@@ -43,7 +43,7 @@ public class Calculator {
         }
 
         //결과 값 저장하기
-        resultList.add(result);
+        addResult(result);
 
         //결과 값 반환하기
         return result;

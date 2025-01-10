@@ -72,7 +72,7 @@ public class Calculator {
             //반복 종료 묻기
             System.out.print("계산을 종료하려면 'exit'을 입력하세요. 계속하려면 아무 키나 입력하세요: ");
             String exitInput = sc.next();
-            if (exitInput.equals("exit")) {
+            if ("exit".equals(exitInput)) { //안전한 코딩을 위해 null 방지
                 System.out.println("계산기를 종료합니다.");
                 break;
             }
